@@ -9,7 +9,7 @@ import { generatePdfFromHtmlAsync } from './pdf/utils';
 
 @Injectable()
 export class AppService {
-  private prepareHtml(data: CreateTransactionPdfDto) {
+  private prepareHtml(requestData: CreateTransactionPdfDto) {
     const {
       amount,
       beneficiaryName,
@@ -23,7 +23,7 @@ export class AppService {
       reference,
       description,
       fee,
-    } = data;
+    } = requestData;
 
     const filePath = join(process.cwd(), 'src', 'receipt.html');
 
