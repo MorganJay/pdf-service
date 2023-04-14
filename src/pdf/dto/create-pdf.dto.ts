@@ -1,39 +1,52 @@
 import { IsNotEmpty } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateTransactionPdfDto {
   @IsNotEmpty()
-  amount: string;
+  @ApiProperty({ required: true })
+  readonly amount: string;
 
   @IsNotEmpty()
-  beneficiaryName: string;
+  @ApiProperty()
+  readonly beneficiaryName: string;
 
   @IsNotEmpty()
-  beneficiaryAccount: string;
+  @ApiProperty()
+  readonly beneficiaryAccount: string;
 
   @IsNotEmpty()
-  senderName: string;
+  @ApiProperty()
+  readonly senderName: string;
 
   @IsNotEmpty()
-  senderAccount: string;
+  @ApiProperty()
+  readonly senderAccount: string;
 
   @IsNotEmpty()
-  date: string;
+  @ApiProperty()
+  readonly date: string;
 
   @IsNotEmpty()
-  time: string;
+  @ApiProperty()
+  readonly time: string;
 
   @IsNotEmpty()
-  fee: string;
+  @ApiProperty()
+  readonly fee: string;
 
+  @ApiProperty()
   @IsNotEmpty()
-  description: string;
+  readonly description: string;
 
+  @ApiProperty()
   @IsNotEmpty()
-  reference: string;
+  readonly reference: string;
 
+  @ApiProperty()
   @IsNotEmpty()
-  transType: string;
+  readonly transType: string;
 
+  @ApiProperty()
   @IsNotEmpty()
-  status: string;
+  readonly status: string;
 }

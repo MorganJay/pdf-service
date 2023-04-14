@@ -6,11 +6,16 @@ import { CreateTransactionPdfDto } from './pdf/dto/create-pdf.dto';
 
 import { getReceiptFileName } from './pdf/utils';
 
-@Controller('api')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('receipt')
+  @Get()
+  getHello() {
+    return 'Hello from PDF service!';
+  }
+
+  @Get('api/receipt')
   async getDummyReceipt(@Res() response: Response): Promise<void> {
     const buffer = await this.appService.getReceipt();
 
@@ -28,7 +33,7 @@ export class AppController {
     response.send(buffer);
   }
 
-  @Post('transaction-receipt')
+  @Post('api/transaction-receipt')
   async createReceipt(
     @Body() createPdfDto: CreateTransactionPdfDto,
     @Res() response: Response,
